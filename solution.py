@@ -98,7 +98,7 @@ def get_route(hostname):
                 whatReady = select.select([mySocket], [], [], timeLeft)
                 howLongInSelect = (time.time() - startedSelect)
                 if whatReady[0] == []:  # Timeout
-                    tracelist1.append(ttl)
+                    tracelist1.append(str(ttl))
                     tracelist1.append("*")
                     tracelist1.append("Request timed out.")
 
@@ -121,7 +121,7 @@ def get_route(hostname):
                     #tracelist2.append(tracelist1)
                     temp = tracelist1.copy()
                     tracelist2.append(temp)
-                    tracelist1.clear()
+                    #tracelist1.clear()
 
                     # Fill in end
             except timeout:
@@ -141,8 +141,8 @@ def get_route(hostname):
                     # Fill in
                     tempTime = 0
                     tracelist1.append(str(ttl))
-                    tracelist1.append(tempTime)
-                    tracelist1.append(addr[0])
+                    tracelist1.append(str(tempTime))
+                    tracelist1.append(str(addr[0]))
                     tracelist1.append("hostname not returnable")
                     # Fill in end
 
@@ -210,7 +210,7 @@ def get_route(hostname):
                     #listLen = len(tracelist2)
 
                     #for i in range(0,listLen):
-                     #   print(tracelist2[i])
+                    #    print(tracelist2[i])
                     return tracelist2
                     # Fill in end
                 else:
